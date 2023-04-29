@@ -4,6 +4,7 @@
 - Netflix Eureka discovery service
 - Resilience4J circuit breaker
 - Spring Actuator
+- Prometheus
 ## Current services:
 - api-gateway
 - discovery-service
