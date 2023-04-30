@@ -5,13 +5,14 @@
 - Resilience4J circuit breaker
 - Spring Actuator
 - Prometheus
+- Config server
 ## Current services:
 - api-gateway
 - discovery-service
 ## How to add your own microservices
 - Write all properties in a properties file in the "properties" directory for your microservice. You may choose to keep it private.
 - Write properties you want to be common across all your microservices in ```common.properties```.
-- Import your properties file using ```spring.config.import=file:./properties/<Your-File>```.
+- Import your properties file using ```spring.config.import=file:./properties/<Your-Microservice-File>```.
 - Import ```common.properties``` file in all other properties files.
 - The root pom.xml has the dependencies:
   - ```spring-cloud-starter-netflix-eureka-client```, for discovery service.
