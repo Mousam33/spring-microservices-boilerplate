@@ -6,6 +6,7 @@
 - Spring Actuator
 - Prometheus
 - Config server
+- OAuth2
 ## Current services:
 - api-gateway
 - discovery-service
@@ -16,6 +17,7 @@
 - Write properties you want to be specific to a microservice in ```<Microservice-Name>.properties```.
 - Import your properties file using ```spring.cloud.config.uri=<Your-Config-Server-URL>```.
 - Import ```application.properties``` file in all other properties files or just use the config server (as it automatically imports this).
+- For managing OAuth2 secrets I have used command line arguments ```--spring.security.oauth2.client.registration.google.clientId=<ClientId>``` and ```--spring.security.oauth2.client.registration.google.clientSecret=<ClientSecret>```
 - The root pom.xml has the dependencies:
   - ```spring-cloud-starter-netflix-eureka-client```, for discovery service.
   - ```spring-cloud-starter-circuitbreaker-resilience4j```, for circuit breaker.
