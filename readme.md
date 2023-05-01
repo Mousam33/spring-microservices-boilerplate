@@ -29,5 +29,4 @@
 - Add dependencies that you need across all your microservices in the root pom.xml.
 
 ## Future work
-- Adding authorization service to api-gateway.
 - Integrating Zipkin.
