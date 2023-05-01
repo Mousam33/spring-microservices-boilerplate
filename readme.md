@@ -9,6 +9,7 @@
 ## Current services:
 - api-gateway
 - discovery-service
+- config-server
 ## How to add your own microservices
 - Write all properties in a properties file in the "properties" directory for your microservice. You may choose to keep it private.
 - Write properties you want to be common across all your microservices in ```application.properties```.
