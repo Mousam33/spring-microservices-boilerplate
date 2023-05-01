@@ -28,10 +28,10 @@ public class AuthenticationFilter extends
                         .map(authentication -> (OAuth2AuthenticationToken) authentication)
                         .map(oAuth2Authentication -> oAuth2Authentication.getPrincipal())
                         .map(bearerToken -> {
-                                ServerHttpRequest.Builder builder = exchange.getRequest().mutate();
-                                builder.header(HttpHeaders.AUTHORIZATION, "Bearer " + bearerToken);
-                                ServerHttpRequest request = builder.build();
-                                return exchange.mutate().request(request).build();
+                            ServerHttpRequest.Builder builder = exchange.getRequest().mutate();
+                            builder.header(HttpHeaders.AUTHORIZATION, "Bearer " + bearerToken);
+                            ServerHttpRequest request = builder.build();
+                            return exchange.mutate().request(request).build();
                             })
                         .defaultIfEmpty(exchange)
                         .flatMap(chain::filter);
