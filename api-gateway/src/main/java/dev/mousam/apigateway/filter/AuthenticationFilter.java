@@ -2,7 +2,6 @@ package dev.mousam.apigateway.filter;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -29,7 +28,9 @@ public class AuthenticationFilter extends
                         .map(oAuth2Authentication -> oAuth2Authentication.getPrincipal())
                         .map(bearerToken -> {
                             ServerHttpRequest.Builder builder = exchange.getRequest().mutate();
-                            builder.header(HttpHeaders.AUTHORIZATION, "Bearer " + bearerToken);
+                            builder
+                                    .header("EMAIL", (String) bearerToken.getAttribute("email"))
+                                    .header("USERNAME", (String) bearerToken.getAttribute("name"));
                             ServerHttpRequest request = builder.build();
                             return exchange.mutate().request(request).build();
                             })
